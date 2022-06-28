@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text,StyleSheet,Pressable,Button,Alert,TextInput, Image } from 'react-native';
 
-export default function CustomInput({placeholder,value,setvalue,secureTextEntry,type} ) {
+export default function CustomInput({placeholder,value,setvalue,secureTextEntry,type,image} ) {
     
 
 
@@ -15,7 +15,7 @@ export default function CustomInput({placeholder,value,setvalue,secureTextEntry,
         borderRadius:5, alignItems:"center",
         alignSelf:"center",
         padding:10,marginRight:5}}>   
-     <Image style={styles.button_logo} source={require('../../assets/user_logo.png')} />   
+     <Image style={styles.button_logo} source={require("../../assets/user_logo.png")} />   
     </View>
     
     <TextInput

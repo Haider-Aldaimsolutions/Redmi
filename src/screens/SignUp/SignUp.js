@@ -1,4 +1,4 @@
-import {  Alert, Pressable, StyleSheet, Text, View } from 'react-native'
+import {  Alert, Pressable, StyleSheet, Text,ScrollView, View } from 'react-native'
 import React,{useState} from 'react'
 import CustomButton from '../../components/button';
 import CustomInput from '../../components/CustomInput';
@@ -17,6 +17,7 @@ const social_login=()=>{
   alert("Social API Not Connected");
 };
   return (
+  <ScrollView>  
     <View>
       <Text style={{ textAlign:"center",paddingTop:"20%",fontSize:25,fontWeight:'bold'}}>Create Account</Text>
       
@@ -29,7 +30,7 @@ const social_login=()=>{
 
       <CustomInput 
       placeholder="email"
-      value={username}
+      value={email}
       setvalue={setemail}
       secureTextEntry={false}
       />
@@ -38,14 +39,14 @@ const social_login=()=>{
       placeholder="password"
       value={password}
       setvalue={setPassword}
-      secureTextEntry={false}
+      secureTextEntry={true}
       />
 
       <CustomInput 
       placeholder="repeat password"
       value={check_password}
       setvalue={set_check_Password}
-      secureTextEntry={false}
+      secureTextEntry={true}
       />
       
       <Text style={{color:"gray",padding:20}}>
@@ -63,6 +64,7 @@ const social_login=()=>{
       
 
     </View>
+  </ScrollView>
     
   )
 }

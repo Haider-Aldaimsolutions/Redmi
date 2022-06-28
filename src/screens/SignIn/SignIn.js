@@ -1,7 +1,12 @@
-import {  Alert, Pressable, StyleSheet, Text, View ,Image} from 'react-native'
+import {  Alert, Pressable, StyleSheet, Text, View ,ScrollView, Image} from 'react-native'
 import React,{useState} from 'react'
 import CustomButton from '../../components/button';
 import CustomInput  from '../../components/CustomInput';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Forget_password from '../Forget_password';
+import SignUp from '../SignUp';
 
 const SignIn = ({navigation}) => {
   
@@ -11,7 +16,9 @@ const SignIn = ({navigation}) => {
 
 
   const onSignIN=()=>{
+      
       navigation.navigate('Home')
+      
   };
   const onSignUp=()=>{
       navigation.navigate('SignUp')
@@ -22,8 +29,11 @@ const onForgetPassword=()=>{
 const social_login=()=>{
   alert("Social API Not Connected");
 };
+
   return (
-    <View style={styles.container}>
+    
+    <ScrollView style={styles.container}>
+ 
       <Image style={styles.redmilogo} source={require('../../../assets/redmi_logo.png')}/>
       
       <CustomInput 
@@ -31,12 +41,14 @@ const social_login=()=>{
       value={username}
       setvalue={setUsername}
       secureTextEntry={false}
+      image = {'../../../assets/user_logo.png'}
       />
       <CustomInput 
       placeholder="password"
       value={password}
       setvalue={setPassword}
       secureTextEntry={true}
+      image = {'../../../assets/password_logo.png'}
       />
       <CustomButton placeholder="Sign In" onPress={onSignIN} />
       <CustomButton placeholder="Forgot Password?" onPress={onForgetPassword} type='forget' />
@@ -46,19 +58,23 @@ const social_login=()=>{
       <CustomButton placeholder="Sign in with Apple" onPress={social_login} type='social_login_facebook' />
       
       <CustomButton placeholder="Don't have an account? Create one. " onPress={onSignUp} type='forget' />
-    </View>
     
+    
+    </ScrollView>
   )
 }
 export default SignIn
 const styles = StyleSheet.create({
   container:{
     backgroundColor:"#ffffff",
-    paddingTop:"10%",
     height:"100%",
   },
   redmilogo:{
     alignSelf:"center",
+    width:100,
+    height:100,
+    resizeMode:'contain',
+    
   },
 
 

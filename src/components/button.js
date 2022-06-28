@@ -22,7 +22,7 @@ export default function CustomButton({placeholder,onPress,type='primary'} ) {
 const styles = StyleSheet.create({
   container:{ 
     width:"90%",
-    marginBottom:15,
+    marginBottom:10,
     alignSelf:"center",
 
   },
