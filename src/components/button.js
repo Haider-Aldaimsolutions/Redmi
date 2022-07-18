@@ -1,7 +1,5 @@
 import React from 'react';
 import {TouchableOpacity, View, Text,StyleSheet,Pressable,Button,Alert } from 'react-native';
-
-
 export default function CustomButton({placeholder,onPress,type='primary'} ) {
     
 
