@@ -2,20 +2,40 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Logout from './logout';
+import CustomButton from '../components/button';
+import { auth } from '../../config';
+import { useNavigation } from '@react-navigation/native';
 const Screen1 = () => {
+    const navigation=useNavigation();
     const Drawer=createDrawerNavigator();
+
+  const handleSignOut = () => {
+    auth
+      .signOut()
+      .then(() => {
+        navigation.replace("SignIn")
+      })
+      .catch(error => alert(error.message))
+  }
   return (
-      <>
-      <Text style={{ textAlign:"center",paddingTop:"20%",fontSize:25,backgroundColor:'red',flex:1}}>Screen1</Text>
-    
-    
-    </>
+      <View style={styles.container}>
+      <Text style={styles.headertext}>Dashboard</Text>
+      <CustomButton placeholder="Sign Out" onPress={handleSignOut}  />
+
+    </View>
         
   )
 }
 
 export default Screen1
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container:{  
+  paddingTop:"20%",
+  backgroundColor:'white',
+  flex:1
+},
+  headertext:{
+    fontSize:25,
+    textAlign:"center",
+  }
+})

@@ -2,16 +2,28 @@ import {  Alert, Pressable, StyleSheet, Text,ScrollView, View } from 'react-nati
 import React,{useState} from 'react'
 import CustomButton from '../../components/button';
 import CustomInput from '../../components/CustomInput';
+import { firebaseConfig } from '../../../config';
+import firebase from 'firebase/compat/app';
+import { auth } from '../../../config';
+import { useEffect } from 'react';
+
+
 const SignUp = ({navigation}) => {
   const [username, setUsername] = useState('');
   const [email, setemail] = useState('');
   const [password, setPassword] = useState('');
   const [check_password, set_check_Password] = useState('');
 
-  const onSignUp=()=>{
-        
-        navigation.navigate('SignIn');
-  };
+
+  const handleSignUp = () => {
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then(userCredentials => {
+        const user = userCredentials.user;
+        console.log('Registered with:', user.email);
+      })
+      .catch(error => alert(error.message))
+  }
 
 const social_login=()=>{
   alert("Social API Not Connected");
@@ -56,7 +68,7 @@ const social_login=()=>{
       <Text style={{color:"#f07d20"}}>Privacy Policy</Text>
       </Text>
 
-      <CustomButton placeholder="Register" onPress={onSignUp} />
+      <CustomButton placeholder="Register" onPress={handleSignUp} />
 
       <CustomButton placeholder="Sign in with Facebook" onPress={social_login} type='social_login_facebook' />
       <CustomButton placeholder="Sign in with Goolge" onPress={social_login} type='social_login_google' />

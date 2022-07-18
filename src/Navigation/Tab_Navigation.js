@@ -12,9 +12,9 @@ import Drawer_navigation from './Drawer_Navigation';
 const Tab_navigation = () => {
   return (
     <Tab.Navigator>
-    
-      <Tab.Screen name="Feed" component={Screen1} options={{ headerShown:false }}/>
-      <Tab.Screen name="Messages" component={Screen2} options={{ headerShown:false }}/>
+
+      <Tab.Screen name="Feed" component={Screen1} options={{ headerShown: false }} />
+      <Tab.Screen name="Messages" component={Screen2} options={{ headerShown: false }} />
     </Tab.Navigator>
   );
 }

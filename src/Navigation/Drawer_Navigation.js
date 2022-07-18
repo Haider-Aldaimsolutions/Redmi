@@ -10,23 +10,22 @@ import Logout from '../screens/logout';
 const Drawer = createDrawerNavigator();
 
 const Drawer_navigation = () => {
-  
-  return (
-      <Drawer.Navigator >
-    
-            <Drawer.Screen name="Tab" component={Tab_navigation}  options={{
-    headerShown: false,headerTransparent:false
-  }}/>
-        <Drawer.Screen name="logout" component={Logout}  screenOptions={{
-    headerShown: false,headerTransparent:false
-  }}/>
-        
-      </Drawer.Navigator>
-      
-    
 
-   
-      )
+  return (
+    <Drawer.Navigator >
+      <Drawer.Screen name="Tab" component={Tab_navigation} options={{
+        headerShown: false, headerTransparent: false
+      }} />
+      <Drawer.Screen name="logout" component={Logout} screenOptions={{
+        headerShown: false, headerTransparent: false
+      }} />
+
+    </Drawer.Navigator>
+
+
+
+
+  )
 }
 
 export default Drawer_navigation

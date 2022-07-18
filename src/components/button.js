@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text,StyleSheet,Pressable,Button,Alert } from 'react-native';
+import {TouchableOpacity, View, Text,StyleSheet,Pressable,Button,Alert } from 'react-native';
+
 
 export default function CustomButton({placeholder,onPress,type='primary'} ) {
     
@@ -7,12 +8,12 @@ export default function CustomButton({placeholder,onPress,type='primary'} ) {
 
   return (
     <View style={styles.container}>
-    <Pressable 
+    <TouchableOpacity 
     onPress={onPress}
     style={[styles[`button_${type}`] ]}
     >
     <Text style={[styles[`text_${type}`] ]} >{placeholder}</Text> 
-    </Pressable>
+    </TouchableOpacity>
 
   </View>
   );

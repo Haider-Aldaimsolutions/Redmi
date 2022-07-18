@@ -13,33 +13,33 @@ import Drawer_navigation from './Drawer_Navigation';
 const Stack = createNativeStackNavigator();
 
 const Stack_Navigation = () => {
-  
-  return (
-<>
 
-  <NavigationContainer>
-      <Stack.Navigator   
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: '#f4511e',
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
-      }}>
-    
-        <Stack.Screen name="SignIn" component={SignIn}  options={{ title: 'Sign In' }} />
-        <Stack.Screen name="SignUp" component={SignUp}  options={{ title: 'Sign Up' }}/>
-        <Stack.Screen name="ForgetPassword" component={Forget_password}  options={{ title: 'Reset Password' }} />
-        <Stack.Screen name="Home" component={Drawer_navigation}  options={{ headerShown:false }} />
-        
-      </Stack.Navigator>
-      
-    </NavigationContainer>
+  return (
+    <>
+
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: '#f4511e',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}>
+
+          <Stack.Screen name="SignIn" component={SignIn} options={{ title: 'Sign In' }} />
+          <Stack.Screen name="SignUp" component={SignUp} options={{ title: 'Sign Up' }} />
+          <Stack.Screen name="ForgetPassword" component={Forget_password} options={{ title: 'Reset Password' }} />
+          <Stack.Screen name="Home" component={Drawer_navigation} options={{ headerShown: false }} />
+
+        </Stack.Navigator>
+
+      </NavigationContainer>
 
     </>
-      )
+  )
 }
 
 export default Stack_Navigation
